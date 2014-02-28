@@ -16,6 +16,7 @@ package org.springframework.social.connect.springdata.dynamodb;
  */
 import java.util.List;
 
+import org.springframework.data.repository.query.Param;
 import org.springframework.social.connect.ConnectionKey;
 import org.springframework.social.connect.springdata.UserConnectionRepository;
 import org.springframework.stereotype.Repository;
@@ -26,6 +27,6 @@ import org.springframework.stereotype.Repository;
 public interface DynamoDBUserConnectionRepository extends
 		UserConnectionRepository<DynamoDBUserConnectionKey,DynamoDBUserConnection> {
 
-	List<DynamoDBUserConnection> findByConnectionKey(ConnectionKey connectionKey);
+	List<DynamoDBUserConnection> findByConnectionKey(@Param("connectionKey") ConnectionKey connectionKey);
 	
 }
