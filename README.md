@@ -1,9 +1,11 @@
 spring-social-spring-data-dynamodb
 ==================================
 
+A UsersConnectionRepository/ConnectionRepository implementation using DynamoDB for persistence as an alternative to the JDBC versions in spring-social-core. 
+
 ## Quick Start ##
 
-1. Download the jar though Maven:
+- 1 Download the jar though Maven:
 
 
 ```xml
@@ -15,13 +17,13 @@ spring-social-spring-data-dynamodb
 
 ```xml
 <dependency>
-  <groupId>org.socialsignin</groupId>
+  <groupId>org.springframework.social</groupId>
   <artifactId>spring-social-spring-data-dynamodb</artifactId>
   <version>1.1.0-SNAPSHOT</version>
 </dependency>
 ```
 
-2. Setup DynamoDB configuration as well as enabling Spring Social Spring Data DynamoDB repository support.
+- 2 Setup DynamoDB configuration as well as enabling Spring Social Spring Data DynamoDB repository support.
 
 ```java
 @Configuration
@@ -86,12 +88,12 @@ or in xml...
 
 ```
 
-3. Create a DynamoDB hash and range key table in AWS console:
+- 3 Create a DynamoDB hash and range key table in AWS console:
 
 a) With table name 'UserConnection' and with hash key attribute name "ConnectionKey" and range key attribute name "UserId"
 b) With global secondary index "UserId-ProviderId-index" with hash key "UserId" and range key "ProviderId"
 
-4. Create a DynamoDB JpaTemplate bean instance in your application context
+- 4 Create a DynamoDB JpaTemplate bean instance in your application context
 
 ```
 @Bean
@@ -100,7 +102,7 @@ public JpaTemplate springDataTemplate()
 	return new DynamoDBUserConnectionRepositoryJpaTemplateAdapter();
 }
 ```
-5. Replace the JdbcUsersConnectionRepository returned by the SocialConfigurer.getUsersConnectionrepository method of your SocialConfig with JpaUsersConnectionRepository,
+- 5 Replace the JdbcUsersConnectionRepository returned by the SocialConfigurer.getUsersConnectionrepository method of your SocialConfig with JpaUsersConnectionRepository,
 wiring in your JpaTemplate bean
 
 ```
@@ -110,7 +112,7 @@ public class SocialConfig implements SocialConfigurer
 @Override
 	public UsersConnectionRepository getUsersConnectionRepository(
 
-		usersConnectionRepository = new JpaUsersConnectionRepository(
+		UsersConnectionRepository usersConnectionRepository = new JpaUsersConnectionRepository(
 				springDataTemplate(), connectionFactoryLocator, Encryptors.noOpText());
                 
 		return usersConnectionRepository;
