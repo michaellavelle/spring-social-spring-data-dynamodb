@@ -17,7 +17,7 @@ A UsersConnectionRepository/ConnectionRepository implementation using DynamoDB f
 
 ```xml
 <dependency>
-  <groupId>org.socialsignin</groupId>
+  <groupId>org.springframework.social</groupId>
   <artifactId>spring-social-spring-data-dynamodb</artifactId>
   <version>1.1.0-SNAPSHOT</version>
 </dependency>
