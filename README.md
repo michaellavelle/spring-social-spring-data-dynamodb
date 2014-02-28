@@ -1,6 +1,8 @@
 spring-social-spring-data-dynamodb
 ==================================
 
+A UsersConnectionRepository/ConnectionRepository implementation using DynamoDB for persistence as an alternative to the JDBC versions in spring-social-core. 
+
 ## Quick Start ##
 
 - 1 Download the jar though Maven:
