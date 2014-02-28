@@ -3,7 +3,7 @@ spring-social-spring-data-dynamodb
 
 ## Quick Start ##
 
-1. Download the jar though Maven:
+- 1 Download the jar though Maven:
 
 
 ```xml
@@ -21,7 +21,7 @@ spring-social-spring-data-dynamodb
 </dependency>
 ```
 
-2. Setup DynamoDB configuration as well as enabling Spring Social Spring Data DynamoDB repository support.
+- 2 Setup DynamoDB configuration as well as enabling Spring Social Spring Data DynamoDB repository support.
 
 ```java
 @Configuration
@@ -86,12 +86,12 @@ or in xml...
 
 ```
 
-3. Create a DynamoDB hash and range key table in AWS console:
+- 3 Create a DynamoDB hash and range key table in AWS console:
 
 a) With table name 'UserConnection' and with hash key attribute name "ConnectionKey" and range key attribute name "UserId"
 b) With global secondary index "UserId-ProviderId-index" with hash key "UserId" and range key "ProviderId"
 
-4. Create a DynamoDB JpaTemplate bean instance in your application context
+- 4 Create a DynamoDB JpaTemplate bean instance in your application context
 
 ```
 @Bean
@@ -100,7 +100,7 @@ public JpaTemplate springDataTemplate()
 	return new DynamoDBUserConnectionRepositoryJpaTemplateAdapter();
 }
 ```
-5. Replace the JdbcUsersConnectionRepository returned by the SocialConfigurer.getUsersConnectionrepository method of your SocialConfig with JpaUsersConnectionRepository,
+- 5 Replace the JdbcUsersConnectionRepository returned by the SocialConfigurer.getUsersConnectionrepository method of your SocialConfig with JpaUsersConnectionRepository,
 wiring in your JpaTemplate bean
 
 ```
