@@ -112,7 +112,7 @@ public class SocialConfig implements SocialConfigurer
 @Override
 	public UsersConnectionRepository getUsersConnectionRepository(
 
-		usersConnectionRepository = new JpaUsersConnectionRepository(
+		UsersConnectionRepository usersConnectionRepository = new JpaUsersConnectionRepository(
 				springDataTemplate(), connectionFactoryLocator, Encryptors.noOpText());
                 
 		return usersConnectionRepository;
