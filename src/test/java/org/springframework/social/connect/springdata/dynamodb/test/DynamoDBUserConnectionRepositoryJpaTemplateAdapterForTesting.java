@@ -1,0 +1,12 @@
+package org.springframework.social.connect.springdata.dynamodb.test;
+
+import org.springframework.social.connect.springdata.dynamodb.AbstractDynamoDBUserConnectionRepositoryJpaTemplateAdapter;
+import org.springframework.stereotype.Service;
+
+@Service
+public class DynamoDBUserConnectionRepositoryJpaTemplateAdapterForTesting extends
+AbstractDynamoDBUserConnectionRepositoryJpaTemplateAdapter<DynamoDBUserConnectionRepositoryForTesting> {
+
+
+}
+
