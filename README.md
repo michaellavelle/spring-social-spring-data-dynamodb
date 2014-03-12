@@ -99,12 +99,14 @@ or in xml...
 ## To use DynamoDB-backed UsersConnection Repository ##
 
 
-- 1 Create a DynamoDB hash and range key table in AWS console:
+- 1 Ensure you have enabled DynamoDB Repositories for the basePackage "org.springframework.social.connect.springdata.dynamodb"
+
+- 2 Create a DynamoDB hash and range key table in AWS console:
 
 a) With table name 'UserConnection' and with hash key attribute name "ConnectionKey" and range key attribute name "UserId"
 b) With global secondary index "UserId-ProviderId-index" with hash key "UserId" and range key "ProviderId"
 
-- 2 Create a DynamoDB JpaTemplate bean instance in your application context
+- 3 Create a DynamoDB JpaTemplate bean instance in your application context
 
 ```
 @Bean
@@ -113,7 +115,7 @@ public JpaTemplate springDataTemplate()
 	return new DynamoDBUserConnectionRepositoryJpaTemplateAdapter();
 }
 ```
-- 3 Replace the JdbcUsersConnectionRepository returned by the SocialConfigurer.getUsersConnectionrepository method of your SocialConfig with JpaUsersConnectionRepository,
+- 4 Replace the JdbcUsersConnectionRepository returned by the SocialConfigurer.getUsersConnectionrepository method of your SocialConfig with JpaUsersConnectionRepository,
 wiring in your JpaTemplate bean
 
 ```
@@ -131,3 +133,30 @@ public class SocialConfig implements SocialConfigurer
 	}
 ```
 
+## To use a DynamoDB-backed SessionStrategy ##
+
+- 1 Ensure you have enabled DynamoDB Repositories for the basePackage "org.springframework.social.connect.web.springdata.dynamodb"
+
+- 2 Configure DynamoDBSessionStrategy as a bean in your application context:
+
+```
+@Bean
+public SessionStrategy sessionStrategy()
+{
+	return new DynamoDBSessionStrategy();
+}
+
+```
+
+
+- 3 Configure a SessionIdSource bean in your application context, eg.
+- 
+```
+@Bean
+public SessionIdSource sessionIdSource()
+{
+	return new CookieSessionIdSource();
+}
+```
+
+- 4 Wire in your sessionStrategy bean into your ConnectController and ProviderSignInController beans
