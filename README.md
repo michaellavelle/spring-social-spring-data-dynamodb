@@ -3,9 +3,9 @@ spring-social-spring-data-dynamodb
 
 A UsersConnectionRepository/ConnectionRepository implementation using DynamoDB for persistence as an alternative to the JDBC versions in spring-social-core. 
 
-## Quick Start ##
+# Quick Start #
 
-# Add DynamoDB Support #
+## Add DynamoDB Support ##
 
 - 1 Download the jar though Maven:
 
@@ -90,7 +90,7 @@ or in xml...
 
 ```
 
-# To use DynamoDB-backed UsersConnection Repository #
+## To use DynamoDB-backed UsersConnection Repository ##
 
 
 - 1 Create a DynamoDB hash and range key table in AWS console:
