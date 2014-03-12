@@ -5,6 +5,8 @@ A UsersConnectionRepository/ConnectionRepository implementation using DynamoDB f
 
 ## Quick Start ##
 
+# Add DynamoDB Support #
+
 - 1 Download the jar though Maven:
 
 
@@ -88,12 +90,15 @@ or in xml...
 
 ```
 
-- 3 Create a DynamoDB hash and range key table in AWS console:
+# To use DynamoDB-backed UsersConnection Repository #
+
+
+- 1 Create a DynamoDB hash and range key table in AWS console:
 
 a) With table name 'UserConnection' and with hash key attribute name "ConnectionKey" and range key attribute name "UserId"
 b) With global secondary index "UserId-ProviderId-index" with hash key "UserId" and range key "ProviderId"
 
-- 4 Create a DynamoDB JpaTemplate bean instance in your application context
+- 2 Create a DynamoDB JpaTemplate bean instance in your application context
 
 ```
 @Bean
@@ -102,7 +107,7 @@ public JpaTemplate springDataTemplate()
 	return new DynamoDBUserConnectionRepositoryJpaTemplateAdapter();
 }
 ```
-- 5 Replace the JdbcUsersConnectionRepository returned by the SocialConfigurer.getUsersConnectionrepository method of your SocialConfig with JpaUsersConnectionRepository,
+- 3 Replace the JdbcUsersConnectionRepository returned by the SocialConfigurer.getUsersConnectionrepository method of your SocialConfig with JpaUsersConnectionRepository,
 wiring in your JpaTemplate bean
 
 ```
