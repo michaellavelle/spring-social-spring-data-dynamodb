@@ -150,7 +150,7 @@ public SessionStrategy sessionStrategy()
 
 
 - 3 Configure a SessionIdSource bean in your application context, eg.
-- 
+
 ```
 @Bean
 public SessionIdSource sessionIdSource()
