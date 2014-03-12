@@ -3,6 +3,8 @@ spring-social-spring-data-dynamodb
 
 A UsersConnectionRepository/ConnectionRepository implementation using DynamoDB for persistence as an alternative to the JDBC versions in spring-social-core. 
 
+Also include is a DynamoDB-backed SessionStategy implementation which can be wired into Spring Social's ConnectController, ProviderSignInController and SocialSignin Spring-Social-Security components
+
 # Quick Start #
 
 ## Add DynamoDB Support ##
