@@ -27,6 +27,12 @@ A UsersConnectionRepository/ConnectionRepository implementation using DynamoDB f
 
 - 2 Setup DynamoDB configuration as well as enabling Spring Social Spring Data DynamoDB repository support.
 
+Configure "basePackages" to be the packages for the relevant dynamodb repositorys
+
+( "org.springframework.social.connect.springdata.dynamodb" for DynamoDB-backed connection repository, or
+
+  "org.springframework.social.connect.web.springdata.dynamodb for DynamoDB-backed SessionStrategy ) 
+
 ```java
 @Configuration
 @EnableDynamoDBRepositories(basePackages = "org.springframework.social.connect.springdata.dynamodb")
