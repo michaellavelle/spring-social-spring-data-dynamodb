@@ -29,7 +29,7 @@ Also include is a DynamoDB-backed SessionStategy implementation which can be wir
 
 - 2 Setup DynamoDB configuration as well as enabling Spring Social Spring Data DynamoDB repository support.
 
-Configure "basePackages" to be the packages for the relevant dynamodb repositorys
+Configure "basePackages" to be the packages for the relevant dynamodb repositories
 
 ( "org.springframework.social.connect.springdata.dynamodb" for DynamoDB-backed connection repository, or
 
